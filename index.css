@@ -1,13 +1,25 @@
 body {
-    background-color:darkgreen;
     text-align: center;
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     font-style: bold;
+    max-width: 80%;
+    margin: auto;
+    border: 3px yellow solid;
+    margin-top: 50px;
+    border-radius: 5px;
+    background: url(blackjack.png);
+    background-size:cover;
+}
+#container {
+    background-color:darkgreen;
+    margin-top: -27px;
+    margin-bottom: -20px;
 }
 h1 {
-    color: goldenrod
+    color: goldenrod;
+    padding: 10px;
 }
 button {
     background: goldenrod;
@@ -18,4 +30,10 @@ button {
 }
 #message-el {
     font-style: italic;
+}
+#player-el {
+    margin-top: 20px;
+}
+p {
+    padding: 10px;
 }
