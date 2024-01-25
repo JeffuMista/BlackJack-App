@@ -24,8 +24,9 @@ function getRandomCard(){
     }
 }
 function startGame() {
-    if (isAlive === false) {
+    if (isAlive === false || hasBlackjack === true) {
     isAlive = true;
+    hasBlackjack = false;
     firstCard = getRandomCard();
     secondCard = getRandomCard();
     cards = [firstCard, secondCard];
