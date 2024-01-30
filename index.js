@@ -1,18 +1,21 @@
-let cards = []
-let isAlive = false
-let hasBlackjack = false
-let sum = 0
-let messageEl = document.getElementById("message-el")
-let message = ""
-let sumEl = document.getElementById("sum-el")
-let cardsEl = document.getElementById("cards-el")
+let cards = [];
+let isAlive = false;
+let hasBlackjack = false;
+let sum = 0;
+const messageEl = document.getElementById("message-el");
+let message = "";
+const sumEl = document.getElementById("sum-el");
+const cardsEl = document.getElementById("cards-el");
 let player = {
     name: "Jeffumista",
     chips: 1000
-}
-let playerEl = document.getElementById("player-el")
-playerEl.textContent = player.name + ": $" + player.chips
-let playerName = document.getElementById("player-name")
+};
+const startGame = document.getElementById("start-game");
+const newCard = document.getElementById("new-card");
+const playerEl = document.getElementById("player-el");
+playerEl.textContent = player.name + ": $" + player.chips;
+const playerName = document.getElementById("player-name");
+
 function getRandomCard(){
     randomNumber = Math.floor(Math.random() * 13 + 1)
     if (randomNumber >= 10){
@@ -23,7 +26,7 @@ function getRandomCard(){
         return randomNumber
     }
 }
-function startGame() {
+startGame.addEventListener("click", function() {
     if (isAlive === false || hasBlackjack === true) {
     isAlive = true;
     hasBlackjack = false;
@@ -33,7 +36,16 @@ function startGame() {
     sum = firstCard + secondCard;
     renderGame()
     }
-}
+});
+
+newCard.addEventListener("click", function(){
+    if (isAlive === true && hasBlackjack === false) {
+    let card = getRandomCard()
+    sum += card
+    cards.push(card)
+    renderGame()
+    }
+});
 
 function renderGame() {
     cardsEl.textContent = "Cards: " 
@@ -52,13 +64,6 @@ function renderGame() {
         isAlive = false
     }
     messageEl.textContent = message
-}
+};
 
-function newCard() {
-    if(isAlive === true && hasBlackjack === false) {
-    let card = getRandomCard()
-    sum += card
-    cards.push(card)
-    renderGame()
-    }
-}
+

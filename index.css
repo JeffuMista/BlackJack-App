@@ -27,6 +27,7 @@ button {
     border-radius: 5px;
     padding: 5px;
     width: 150px;
+    cursor: pointer
 }
 #message-el {
     font-style: italic;
